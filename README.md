@@ -98,9 +98,11 @@ Nhấn `\\`: để tìm file vừa truy cập
 
 ### devaslife
 
-`brew insatll lua-language-server`
-`npm install -g typescript-language-server typescript`
-`brew install tree-sitter`
-`brew install rg`
-`npm install -g @fsouza/prettierd`
-`npm install -g eslint_d`
+```
+brew insatll lua-language-server
+npm install -g typescript-language-server typescript
+brew install tree-sitter
+brew install rg
+npm install -g @fsouza/prettierd
+npm install -g eslint_d
+```
