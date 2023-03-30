@@ -1,4 +1,4 @@
-lvim.format_on_save.enabled = true
+lvim.format_on_save = true
 lvim.colorscheme = "lunar"
 lvim.transparent_window = true
 lvim.builtin.dap.active = true
@@ -8,6 +8,10 @@ lvim.builtin.dap.active = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+vim.opt.relativenumber = true -- set relative numbered lines
+
+lvim.lsp.buffer_mappings.normal_mode['gk'] = lvim.lsp.buffer_mappings.normal_mode['K']
+lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -15,7 +19,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- delete single character without copying into register
 lvim.keys.normal_mode["x"] = '"_x'
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
-vim.keymap.set('n', 'te', ':tabedit')
 
 vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
 vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
@@ -24,10 +27,26 @@ vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
 vim.keymap.set('n', 'ss', ':split<Return><C-w>w')
 vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
+
+vim.keymap.set('n', '<', '<gv')
+vim.keymap.set('n', '>', '>gv')
+
+vim.keymap.set('n', 'J', '5jzz')
+vim.keymap.set('n', 'K', '5kzz')
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+vim.keymap.set('n', '<Tab>', '>gv')
+vim.keymap.set('n', '<S-Tab>', '<gv')
+
+
+vim.keymap.set('v', 'J', ':m .+1<CR>gv=gv')
+vim.keymap.set('v', 'K', ':m .-2<CR>gv=gv')
+
+
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -44,7 +63,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
-  "php",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
