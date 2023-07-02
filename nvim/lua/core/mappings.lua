@@ -23,6 +23,11 @@ M.general = {
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
 
+    -- Lsb saga
+    ["<leader>ra"] = { "<cmd> Lspsaga rename <CR>", "Lspsaga rename" },
+    ["gp"] = { "<cmd> Lspsaga peek_definition <CR>", "Lspsaga peek_definition" },
+    ["<leader>gd"] = { "<cmd> Lspsaga lsp_finder <CR>", "Lspsaga lsp_finder" },
+
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
@@ -173,12 +178,12 @@ M.lspconfig = {
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
-      function()
-        require("nvchad_ui.renamer").open()
-      end,
-      "LSP rename",
-    },
+    -- ["<leader>ra"] = {
+    --   function()
+    --     require("nvchad_ui.renamer").open()
+    --   end,
+    --   "LSP rename",
+    -- },
 
     ["<leader>ca"] = {
       function()
@@ -263,7 +268,7 @@ M.telescope = {
   n = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>fx"] = {"<cmd> TodoTelescope keywords=TODO,FIX ", "Telescope find todo"},  
+    ["<leader>fx"] = {"<cmd> TodoTelescope keywords=TODO,FIX <CR>", "Telescope find todo"},  
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },

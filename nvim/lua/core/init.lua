@@ -1,6 +1,23 @@
 local opt = vim.opt
 local g = vim.g
+local keymap = vim.keymap
 local config = require("core.utils").load_config()
+
+-------------------------------------- key maps -----------------------------------------
+keymap.set('n', 'ss', ':split<Return><C-w>w')
+keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
+
+-- Increment/decrement
+keymap.set('v', '>', '>gv')
+keymap.set('v', '<', '<gv')
+
+------------------- Jimdev bog for mdx -----------------------------------------
+
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
 
 -------------------------------------- globals -----------------------------------------
 g.nvchad_theme = config.ui.theme
